@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url(http://www.thegamerscene.com/wp-content/uploads/2015/09/League-of-Legends-2015.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .countdown {
+        font-size: 120px;
+        color: #fff;
+        letter-spacing: 1px;
+        font-family: 'Oswald', sans-serif;
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        margin-left: -180px;
+    }
+
+
+</style>
+<body>
+    <div class="countdown"></div>
+
+    <div class="author">
+        <p class="first">Lavet til mine bitches</p>
+        <p>Nicolai</p>
+        <p>Doldefod</p>
+        <p>Simone</p>
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="moment.js"></script>
+<script>
+
+$(function () {
+
+    var now = new Date();
+    var w = "10/01/2015 15:00:00";
+
+    var ms = moment.utc(moment(w,"DD/MM/YYYY HH:mm:ss").diff(moment(now,"DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
+
+    $('.countdown').html(ms);
+
+    setInterval(function () {
+        var now = new Date();
+        var ms = moment.utc(moment(w,"DD/MM/YYYY HH:mm:ss").diff(moment(now,"DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
+        $('.countdown').html(ms);
+
+
+    }, 1000)
+
+
+});
+
+</script>
+</html>
